@@ -1,4 +1,4 @@
-import { Moon, Star } from 'lucide-react';
+import { Moon } from 'lucide-react';
 
 export const NightMotionGraphics = () => {
   return (
@@ -9,20 +9,34 @@ export const NightMotionGraphics = () => {
         <div className="absolute inset-0 bg-white/20 rounded-full blur-xl animate-pulse-glow scale-150" />
       </div>
 
-      {/* Twinkling Stars */}
-      {Array.from({ length: 12 }).map((_, i) => (
-        <div
-          key={i}
-          className="absolute animate-twinkle"
-          style={{
-            left: `${10 + (i * 7)}%`,
-            top: `${5 + (i % 3) * 15}%`,
-            animationDelay: `${i * 0.5}s`,
-          }}
-        >
-          <Star className="w-3 h-3 text-white/70" fill="currentColor" />
-        </div>
-      ))}
+      {/* Realistic Twinkling Stars */}
+      {Array.from({ length: 30 }).map((_, i) => {
+        const size = Math.random() > 0.7 ? 'large' : Math.random() > 0.4 ? 'medium' : 'small';
+        const intensity = Math.random() > 0.5 ? 'bright' : 'dim';
+        
+        return (
+          <div
+            key={i}
+            className={`absolute animate-star-twinkle-${Math.floor(Math.random() * 3) + 1}`}
+            style={{
+              left: `${Math.random() * 90 + 5}%`,
+              top: `${Math.random() * 40 + 5}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
+          >
+            <div className={`star star-${size} star-${intensity}`}>
+              <div className="star-inner"></div>
+              <div className="star-rays">
+                <div className="ray ray-1"></div>
+                <div className="ray ray-2"></div>
+                <div className="ray ray-3"></div>
+                <div className="ray ray-4"></div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
 
       {/* Moving Clouds */}
       <div className="absolute top-20 left-0 w-96 h-32 bg-white/5 rounded-full blur-2xl animate-cloud-drift opacity-30" />

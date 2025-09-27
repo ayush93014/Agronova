@@ -217,6 +217,67 @@ export default {
             transform: "translateY(0px) translateX(0px) scale(0.8)" 
           },
         },
+        "star-twinkle-1": {
+          "0%": { 
+            opacity: "0.3",
+            transform: "scale(0.8) rotate(0deg)",
+            filter: "brightness(0.8)"
+          },
+          "50%": { 
+            opacity: "1",
+            transform: "scale(1.2) rotate(180deg)",
+            filter: "brightness(1.3) drop-shadow(0 0 6px rgba(255,255,255,0.8))"
+          },
+          "100%": { 
+            opacity: "0.3",
+            transform: "scale(0.8) rotate(360deg)",
+            filter: "brightness(0.8)"
+          },
+        },
+        "star-twinkle-2": {
+          "0%": { 
+            opacity: "0.4",
+            transform: "scale(0.9) rotate(45deg)",
+            filter: "brightness(0.9)"
+          },
+          "25%": { 
+            opacity: "0.8",
+            transform: "scale(1.1) rotate(135deg)",
+            filter: "brightness(1.1)"
+          },
+          "75%": { 
+            opacity: "0.9",
+            transform: "scale(1.3) rotate(270deg)",
+            filter: "brightness(1.4) drop-shadow(0 0 8px rgba(255,255,255,0.6))"
+          },
+          "100%": { 
+            opacity: "0.4",
+            transform: "scale(0.9) rotate(405deg)",
+            filter: "brightness(0.9)"
+          },
+        },
+        "star-twinkle-3": {
+          "0%": { 
+            opacity: "0.2",
+            transform: "scale(0.7) rotate(90deg)",
+            filter: "brightness(0.7)"
+          },
+          "33%": { 
+            opacity: "0.7",
+            transform: "scale(1.0) rotate(180deg)",
+            filter: "brightness(1.0)"
+          },
+          "66%": { 
+            opacity: "1",
+            transform: "scale(1.4) rotate(270deg)",
+            filter: "brightness(1.5) drop-shadow(0 0 10px rgba(255,255,255,0.9))"
+          },
+          "100%": { 
+            opacity: "0.2",
+            transform: "scale(0.7) rotate(450deg)",
+            filter: "brightness(0.7)"
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -239,6 +300,9 @@ export default {
         "mist-flow-reverse": "mist-flow-reverse 10s ease-in-out infinite",
         "crop-wave": "crop-wave 4s ease-in-out infinite",
         "firefly": "firefly 6s ease-in-out infinite",
+        "star-twinkle-1": "star-twinkle-1 3s ease-in-out infinite",
+        "star-twinkle-2": "star-twinkle-2 4s ease-in-out infinite",
+        "star-twinkle-3": "star-twinkle-3 5s ease-in-out infinite",
       },
     },
   },
