@@ -1,8 +1,9 @@
-import heroFarm from "@/assets/hero-farm.jpg";
+import heroNightFarm from "@/assets/hero-night-farm.png";
 import { Button } from "@/components/ui/button";
 import { Sprout, Target, Users, Award } from "lucide-react";
 import { AnimatedParticles } from "./AnimatedParticles";
 import { AnimatedBackground } from "./AnimatedBackground";
+import { NightMotionGraphics } from "./NightMotionGraphics";
 
 export const FarmHero = () => {
   return (
@@ -10,12 +11,15 @@ export const FarmHero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroFarm} 
-          alt="Sustainable farming landscape with modern technology" 
+          src={heroNightFarm} 
+          alt="Nighttime sustainable farming landscape with tractor and moonlight" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/60 via-teal-800/40 to-teal-700/30" />
       </div>
+      
+      {/* Night Motion Graphics */}
+      <NightMotionGraphics />
       
       {/* Animated Background Elements */}
       <AnimatedBackground />

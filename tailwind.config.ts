@@ -153,6 +153,70 @@ export default {
             opacity: "1"
           },
         },
+        "moon-glow": {
+          "0%, 100%": { 
+            transform: "scale(1) rotate(0deg)",
+            filter: "brightness(1) drop-shadow(0 0 20px rgba(255,255,255,0.3))"
+          },
+          "50%": { 
+            transform: "scale(1.1) rotate(5deg)",
+            filter: "brightness(1.2) drop-shadow(0 0 40px rgba(255,255,255,0.5))"
+          },
+        },
+        "twinkle": {
+          "0%, 100%": { opacity: "0.3", transform: "scale(0.8)" },
+          "50%": { opacity: "1", transform: "scale(1.2)" },
+        },
+        "cloud-drift": {
+          "0%": { transform: "translateX(-100px)" },
+          "100%": { transform: "translateX(100vw)" },
+        },
+        "cloud-drift-reverse": {
+          "0%": { transform: "translateX(100px)" },
+          "100%": { transform: "translateX(-100vw)" },
+        },
+        "headlight-sweep": {
+          "0%": { opacity: "0.4", transform: "scaleX(0.8) rotate(12deg)" },
+          "50%": { opacity: "0.8", transform: "scaleX(1.2) rotate(8deg)" },
+          "100%": { opacity: "0.4", transform: "scaleX(0.8) rotate(12deg)" },
+        },
+        "mist-flow": {
+          "0%": { transform: "translateX(-20px)", opacity: "0.2" },
+          "50%": { transform: "translateX(20px)", opacity: "0.4" },
+          "100%": { transform: "translateX(-20px)", opacity: "0.2" },
+        },
+        "mist-flow-reverse": {
+          "0%": { transform: "translateX(20px)", opacity: "0.15" },
+          "50%": { transform: "translateX(-20px)", opacity: "0.3" },
+          "100%": { transform: "translateX(20px)", opacity: "0.15" },
+        },
+        "crop-wave": {
+          "0%": { opacity: "0.3", transform: "scaleY(0.8)" },
+          "50%": { opacity: "0.6", transform: "scaleY(1.2)" },
+          "100%": { opacity: "0.3", transform: "scaleY(0.8)" },
+        },
+        "firefly": {
+          "0%": { 
+            opacity: "0.2", 
+            transform: "translateY(0px) translateX(0px) scale(0.8)" 
+          },
+          "25%": { 
+            opacity: "0.8", 
+            transform: "translateY(-10px) translateX(5px) scale(1)" 
+          },
+          "50%": { 
+            opacity: "1", 
+            transform: "translateY(-5px) translateX(10px) scale(1.2)" 
+          },
+          "75%": { 
+            opacity: "0.6", 
+            transform: "translateY(-15px) translateX(3px) scale(1)" 
+          },
+          "100%": { 
+            opacity: "0.2", 
+            transform: "translateY(0px) translateX(0px) scale(0.8)" 
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -166,6 +230,15 @@ export default {
         "crop-grow": "crop-grow 3s ease-out",
         "bounce-slow": "bounce 3s infinite",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "moon-glow": "moon-glow 4s ease-in-out infinite",
+        "twinkle": "twinkle 2s ease-in-out infinite",
+        "cloud-drift": "cloud-drift 25s linear infinite",
+        "cloud-drift-reverse": "cloud-drift-reverse 30s linear infinite",
+        "headlight-sweep": "headlight-sweep 3s ease-in-out infinite",
+        "mist-flow": "mist-flow 8s ease-in-out infinite",
+        "mist-flow-reverse": "mist-flow-reverse 10s ease-in-out infinite",
+        "crop-wave": "crop-wave 4s ease-in-out infinite",
+        "firefly": "firefly 6s ease-in-out infinite",
       },
     },
   },
