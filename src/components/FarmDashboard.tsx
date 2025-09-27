@@ -37,11 +37,11 @@ export const FarmDashboard = () => {
 
   const getCropStageIcon = (stage: number, maxStage: number) => {
     const progress = stage / maxStage;
-    if (progress < 0.25) return <div className="w-2 h-2 bg-soil rounded-full" />;
-    if (progress < 0.5) return <Sprout className="w-4 h-4 text-crop" />;
-    if (progress < 0.75) return <div className="w-4 h-6 bg-crop rounded-t-full" />;
-    return <div className="w-4 h-8 bg-success rounded-t-full relative">
-      <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-accent rounded-full" />
+    if (progress < 0.25) return <div className="w-2 h-2 bg-soil rounded-full animate-pulse" />;
+    if (progress < 0.5) return <Sprout className="w-4 h-4 text-crop animate-wiggle" />;
+    if (progress < 0.75) return <div className="w-4 h-6 bg-crop rounded-t-full animate-grow" />;
+    return <div className="w-4 h-8 bg-success rounded-t-full relative animate-pulse-glow">
+      <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-accent rounded-full animate-float" />
     </div>;
   };
 
@@ -50,14 +50,14 @@ export const FarmDashboard = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-gradient-success text-success-foreground border-0 shadow-success">
+          <Card className="bg-gradient-success text-success-foreground border-0 shadow-success hover:shadow-glow hover:scale-105 transition-all duration-300 group">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm opacity-90">Level {playerData.level}</p>
-                  <p className="text-2xl font-bold">{playerData.xp} XP</p>
+                  <p className="text-2xl font-bold animate-shimmer bg-gradient-to-r from-success-foreground via-white to-success-foreground bg-[length:200%_auto] bg-clip-text">{playerData.xp} XP</p>
                 </div>
-                <Trophy className="w-8 h-8 opacity-80" />
+                <Trophy className="w-8 h-8 opacity-80 group-hover:animate-wiggle" />
               </div>
               <Progress 
                 value={(playerData.xp / playerData.nextLevelXp) * 100} 
@@ -66,38 +66,38 @@ export const FarmDashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-accent to-sun text-accent-foreground border-0 shadow-earth">
+          <Card className="bg-gradient-to-br from-accent to-sun text-accent-foreground border-0 shadow-earth hover:shadow-glow hover:scale-105 transition-all duration-300 group">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm opacity-90">Farm Coins</p>
-                  <p className="text-2xl font-bold">{playerData.coins}</p>
+                  <p className="text-2xl font-bold animate-pulse">{playerData.coins}</p>
                 </div>
-                <Coins className="w-8 h-8 opacity-80" />
+                <Coins className="w-8 h-8 opacity-80 group-hover:animate-bounce-slow" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-water to-primary text-primary-foreground border-0 shadow-glow">
+          <Card className="bg-gradient-to-br from-water to-primary text-primary-foreground border-0 shadow-glow hover:shadow-success hover:scale-105 transition-all duration-300 group">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm opacity-90">Sustainability</p>
                   <p className="text-2xl font-bold">{playerData.sustainabilityScore}%</p>
                 </div>
-                <Star className="w-8 h-8 opacity-80" />
+                <Star className="w-8 h-8 opacity-80 group-hover:animate-pulse-glow" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-earth">
+          <Card className="border-0 shadow-earth hover:shadow-glow hover:scale-105 transition-all duration-300 group">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-muted-foreground">Active Tasks</p>
                   <p className="text-2xl font-bold text-foreground">{playerData.activeTasks.length}</p>
                 </div>
-                <Clock className="w-8 h-8 text-muted-foreground" />
+                <Clock className="w-8 h-8 text-muted-foreground group-hover:animate-wiggle" />
               </div>
             </CardContent>
           </Card>
@@ -115,17 +115,17 @@ export const FarmDashboard = () => {
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
                 {playerData.crops.map((crop, index) => (
-                  <div key={index} className="bg-gradient-farm rounded-xl p-4 border border-border">
+                  <div key={index} className="bg-gradient-farm rounded-xl p-4 border border-border hover:border-success hover:shadow-success hover:scale-105 transition-all duration-500 group animate-crop-grow" style={{ animationDelay: `${index * 0.2}s` }}>
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold">{crop.name}</h4>
-                      <Badge variant={crop.health > 90 ? "default" : "outline"} className="bg-success text-success-foreground">
+                      <h4 className="font-semibold group-hover:text-success transition-colors">{crop.name}</h4>
+                      <Badge variant={crop.health > 90 ? "default" : "outline"} className="bg-success text-success-foreground group-hover:animate-pulse">
                         {crop.health}% Health
                       </Badge>
                     </div>
                     <div className="flex items-center justify-center h-16 mb-3">
                       {getCropStageIcon(crop.stage, crop.maxStage)}
                     </div>
-                    <Progress value={(crop.stage / crop.maxStage) * 100} className="h-2" />
+                    <Progress value={(crop.stage / crop.maxStage) * 100} className="h-2 group-hover:animate-shimmer" />
                     <p className="text-sm text-muted-foreground mt-2 text-center">
                       Stage {crop.stage} of {crop.maxStage}
                     </p>
