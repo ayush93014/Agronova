@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+# Agronova
 
-## Project info
+**Smarter Agriculture, Better Decisions** — a student-developed agricultural technology prototype for the Smart India Hackathon (SIH).
 
-**URL**: https://lovable.dev/projects/b18a4525-8bda-4cd9-b08d-1137bfb0f419
+> **Status: work in progress.** Agronova is an evolving prototype. Several features use sample data or are awaiting backend integration (see [Current state](#current-state)).
 
-## How can I edit this code?
+## Tech stack
 
-There are several ways of editing your application.
+Vite · React 18 · TypeScript · Tailwind CSS · shadcn/ui (Radix) · React Router · React Hook Form + Zod
 
-**Use Lovable**
+## Getting started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b18a4525-8bda-4cd9-b08d-1137bfb0f419) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requires Node.js 18+ and npm.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm ci            # install exactly what package-lock.json specifies
+npm run dev       # development server on http://localhost:8080
+npm run lint      # ESLint
+npm run build     # production build into dist/
+npm run preview   # serve the production build locally
 ```
 
-**Edit a file directly in GitHub**
+Copy `.env.example` to `.env` if you need to configure a backend. **Never commit `.env`.** Any variable prefixed with `VITE_` is bundled into public JavaScript, so it must never be a secret.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project structure
 
-**Use GitHub Codespaces**
+```
+src/
+  components/
+    auth/       Shared login/register UI (AuthLayout, FormField)
+    effects/    Decorative animated backgrounds and particles
+    home/       Homepage sections (hero, project sections, dashboard and mission previews)
+    layout/     Navigation
+    ui/         shadcn/ui primitives
+  content/      Editable project facts (SIH problem statement, feature status)
+  hooks/        Shared React hooks
+  lib/          Utilities and Zod validation schemas
+  pages/        Route-level pages: Index, Login, Register, SoilSetup, NotFound
+  services/     Auth service (demo mode until a backend is connected)
+  types/        Shared TypeScript types
+public/images/  Logo
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Routes: `/` (home), `/login`, `/register`, `/soil-setup`, and a 404 fallback.
 
-## What technologies are used for this project?
+## Current state
 
-This project is built with:
+| Area | State |
+| --- | --- |
+| Homepage, navigation, responsive layout | Working |
+| Login and registration forms (validation, loading and error states, cross-links) | Working |
+| Account creation / authentication | **Not connected.** Runs in demo mode: input is validated in the browser; nothing is stored or sent. |
+| Soil setup | UI works; data is **not saved** |
+| Farm dashboard and mission board | UI works with **hardcoded sample data** |
+| Private routes, logout | Not applicable yet (no real sessions) |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Connecting authentication later
 
-## How can I deploy this project?
+`src/services/auth.ts` is the single place to implement real login and registration. It stays in demo mode while `VITE_API_BASE_URL` is empty. Hash passwords on the server, never log or persist passwords or Aadhar numbers in the browser, and reconsider whether the prototype should collect Aadhar numbers at all.
 
-Simply open [Lovable](https://lovable.dev/projects/b18a4525-8bda-4cd9-b08d-1137bfb0f419) and click on Share -> Publish.
+### Filling in the SIH details
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Edit `src/content/project.ts` to add the official problem statement (ID, title, organisation, summary) and to keep the "implemented vs planned" list accurate.

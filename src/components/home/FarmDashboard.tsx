@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import { SampleDataNotice } from "@/components/home/SampleDataNotice";
 import { Droplets, Sprout, Shield, Sun, Trophy, Coins, Star, Clock } from "lucide-react";
 
 export const FarmDashboard = () => {
@@ -30,7 +31,7 @@ export const FarmDashboard = () => {
     setPlayerData(prev => ({
       ...prev,
       activeTasks: prev.activeTasks.filter(task => task.id !== taskId),
-      xp: prev.xp + prev.activeTasks.find(task => task.id === taskId)?.reward || 0,
+      xp: prev.xp + (prev.activeTasks.find(task => task.id === taskId)?.reward ?? 0),
       coins: prev.coins + Math.floor((prev.activeTasks.find(task => task.id === taskId)?.reward || 0) / 2)
     }));
   };
@@ -48,6 +49,8 @@ export const FarmDashboard = () => {
   return (
     <section className="min-h-screen bg-gradient-farm py-12">
       <div className="max-w-7xl mx-auto px-6">
+        <SampleDataNotice title="Farm dashboard preview" />
+
         {/* Header Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card className="bg-gradient-success text-success-foreground border-0 shadow-success hover:shadow-glow hover:scale-105 transition-all duration-300 group">

@@ -1,23 +1,39 @@
-import { Navigation } from "@/components/Navigation";
-import { FarmHero } from "@/components/FarmHero";
-import { FarmDashboard } from "@/components/FarmDashboard";
-import { MissionBoard } from "@/components/MissionBoard";
+import { Navigation } from "@/components/layout/Navigation";
+import { FarmHero } from "@/components/home/FarmHero";
+import { FarmDashboard } from "@/components/home/FarmDashboard";
+import { MissionBoard } from "@/components/home/MissionBoard";
+import {
+  AboutProject,
+  CallToAction,
+  DevelopmentStatus,
+  HowItWorks,
+  ProblemSection,
+  SolutionSection,
+  StatusNotice,
+} from "@/components/home/ProjectSections";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <Navigation />
+const Index = () => (
+  <div className="min-h-screen">
+    <Navigation />
+    <main>
       <div id="hero">
         <FarmHero />
       </div>
+      <StatusNotice />
+      <ProblemSection />
+      <SolutionSection />
+      <HowItWorks />
       <div id="dashboard">
         <FarmDashboard />
       </div>
       <div id="missions">
         <MissionBoard />
       </div>
-    </div>
-  );
-};
+      <DevelopmentStatus />
+      <AboutProject />
+      <CallToAction />
+    </main>
+  </div>
+);
 
 export default Index;

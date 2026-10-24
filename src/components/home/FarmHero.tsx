@@ -1,9 +1,10 @@
 import heroNightFarm from "@/assets/hero-night-farm.png";
 import { Button } from "@/components/ui/button";
-import { Sprout, Target, Users, Award } from "lucide-react";
-import { AnimatedParticles } from "./AnimatedParticles";
-import { AnimatedBackground } from "./AnimatedBackground";
-import { NightMotionGraphics } from "./NightMotionGraphics";
+import { Link } from "react-router-dom";
+import { Sprout, Target, Compass, Award } from "lucide-react";
+import { AnimatedParticles } from "@/components/effects/AnimatedParticles";
+import { AnimatedBackground } from "@/components/effects/AnimatedBackground";
+import { NightMotionGraphics } from "@/components/effects/NightMotionGraphics";
 
 export const FarmHero = () => {
   return (
@@ -27,60 +28,63 @@ export const FarmHero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 leading-tight animate-grow">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight animate-grow">
             AGRONOVA
-            <span className="text-accent block animate-shimmer bg-gradient-to-r from-accent via-sun to-accent bg-[length:200%_auto] bg-clip-text text-transparent">Sustainable</span>
-            <span className="text-sun animate-pulse-glow">Farming</span>
+            <span className="text-accent block text-3xl md:text-4xl lg:text-5xl mt-3 text-balance animate-shimmer bg-gradient-to-r from-accent via-sun to-accent bg-[length:200%_auto] bg-clip-text text-transparent">
+              Smarter Agriculture, Better Decisions
+            </span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-float">
-            India's revolutionary gamified platform for sustainable farming. Complete missions, earn rewards, 
-            and join the agricultural transformation of 2025.
+
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            A student-developed agricultural technology prototype for the Smart India Hackathon (SIH),
+            exploring how digital tools can make useful information and decision support more
+            accessible to farmers.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-lg px-8 py-4 group hover:scale-105 transition-all duration-300 animate-pulse-glow"
-            >
-              <Sprout className="w-6 h-6 group-hover:animate-wiggle" />
-              Start Your Farm Journey
+            <Button asChild variant="hero" size="lg" className="text-lg px-8 py-4 group">
+              <a href="#problem">
+                <Compass className="w-6 h-6" aria-hidden="true" />
+                Explore Agronova
+              </a>
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-8 py-4 bg-card/10 backdrop-blur-sm border-primary-foreground/30 text-primary-foreground hover:bg-card/20 hover:scale-105 transition-all duration-300 group"
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="text-lg px-8 py-4 bg-card/10 backdrop-blur-sm border-primary-foreground/30 text-primary-foreground hover:bg-card/20"
             >
-              <Target className="w-6 h-6 group-hover:animate-wiggle" />
-              View Missions
+              <Link to="/register">
+                <Sprout className="w-6 h-6" aria-hidden="true" />
+                Register
+              </Link>
             </Button>
           </div>
-          
+
           {/* Feature Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/20 hover:bg-card/20 hover:scale-105 transition-all duration-500 group animate-crop-grow" style={{ animationDelay: '0.5s' }}>
               <div className="bg-success rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 group-hover:animate-pulse-glow">
                 <Sprout className="w-6 h-6 text-success-foreground group-hover:animate-wiggle" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Interactive Farming</h3>
-              <p className="text-primary-foreground/80">Plant, water, and harvest crops in your virtual farm while learning sustainable practices.</p>
+              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Farm Profile Setup</h3>
+              <p className="text-primary-foreground/80">Record soil types, farm size and preferred crops to personalise the experience.</p>
             </div>
             
             <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/20 hover:bg-card/20 hover:scale-105 transition-all duration-500 group animate-crop-grow" style={{ animationDelay: '1s' }}>
               <div className="bg-accent rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 group-hover:animate-pulse-glow">
                 <Award className="w-6 h-6 text-accent-foreground group-hover:animate-wiggle" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Earn Rewards</h3>
-              <p className="text-primary-foreground/80">Complete daily missions and earn XP, badges, and real-world benefits.</p>
+              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Gamified Missions</h3>
+              <p className="text-primary-foreground/80">Daily, weekly and seasonal missions that reward sustainable practices (sample missions for now).</p>
             </div>
             
             <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/20 hover:bg-card/20 hover:scale-105 transition-all duration-500 group animate-crop-grow" style={{ animationDelay: '1.5s' }}>
               <div className="bg-water rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 group-hover:animate-pulse-glow">
-                <Users className="w-6 h-6 text-card group-hover:animate-wiggle" />
+                <Target className="w-6 h-6 text-card group-hover:animate-wiggle" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Farm Community</h3>
-              <p className="text-primary-foreground/80">Connect with fellow farmers, share knowledge, and grow together.</p>
+              <h3 className="text-xl font-semibold text-primary-foreground mb-2">Progress Dashboard</h3>
+              <p className="text-primary-foreground/80">Track crops, tasks and a sustainability score in one place (sample data for now).</p>
             </div>
           </div>
         </div>

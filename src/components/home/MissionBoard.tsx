@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { SampleDataNotice } from "@/components/home/SampleDataNotice";
 import { Calendar, Droplets, Leaf, Shield, Sun, Target, Trophy, Clock, Star } from "lucide-react";
 
 interface Mission {
@@ -116,6 +117,8 @@ export const MissionBoard = () => {
   return (
     <section className="min-h-screen bg-background py-12">
       <div className="max-w-7xl mx-auto px-6">
+        <SampleDataNotice title="Mission board preview" />
+
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-foreground mb-4">Mission Board</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -229,8 +232,8 @@ const MissionCard = ({ mission, getIcon, getDifficultyColor, getTypeIcon }: {
         </div>
 
         <div className="border-t pt-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <div className="flex items-center gap-1">
                 <Trophy className="w-4 h-4 text-accent" />
                 <span className="text-sm font-semibold">{mission.reward.xp} XP</span>
@@ -248,10 +251,10 @@ const MissionCard = ({ mission, getIcon, getDifficultyColor, getTypeIcon }: {
             
             <Button 
               variant={isCompleted ? "success" : "default"} 
-              disabled={isCompleted}
+              disabled
               className="transition-bounce"
             >
-              {isCompleted ? "Completed" : "Start Mission"}
+              {isCompleted ? "Completed" : "Coming soon"}
             </Button>
           </div>
         </div>

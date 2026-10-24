@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle, Upload } from "lucide-react";
+import { toast } from "sonner";
 
 const SoilSetup = () => {
   const [selectedSoils, setSelectedSoils] = useState<string[]>([]);
@@ -53,7 +54,7 @@ const SoilSetup = () => {
   const handleCompleteSetup = () => {
     // Validate required fields
     if (selectedSoils.length === 0 || !farmSize || selectedCrops.length === 0) {
-      alert("Please complete all required fields");
+      toast.error("Please select at least one soil type, a farm size and at least one crop.");
       return;
     }
     
@@ -70,8 +71,8 @@ const SoilSetup = () => {
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
               <img 
-                src="/lovable-uploads/f2ee9f02-6fb1-4990-82cb-a4be934e38fb.png" 
-                alt="AGRONOVA Logo" 
+                src="/images/agronova-logo.png" 
+                alt="Agronova logo" 
                 className="w-16 h-16 rounded-full border-2 border-earth-medium"
               />
             </div>
@@ -81,7 +82,7 @@ const SoilSetup = () => {
             <Alert className="bg-success/10 border-success/20 text-success">
               <CheckCircle className="h-4 w-4" />
               <AlertDescription>
-                ✅ Registration successful! Please complete your soil information.
+                Almost there. Please complete your soil information. (Demo: this is not saved anywhere yet.)
               </AlertDescription>
             </Alert>
           </CardHeader>
@@ -99,7 +100,16 @@ const SoilSetup = () => {
               {soilTypes.map((soil) => (
                 <div
                   key={soil.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={selectedSoils.includes(soil.id)}
                   onClick={() => toggleSoilSelection(soil.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleSoilSelection(soil.id);
+                    }
+                  }}
                   className={`cursor-pointer rounded-xl p-4 border-2 transition-all duration-200 hover:scale-105 ${
                     selectedSoils.includes(soil.id)
                       ? "border-earth-medium bg-earth-light/20 shadow-md"
