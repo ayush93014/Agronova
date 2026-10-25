@@ -36,9 +36,7 @@ export const FarmHero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            A student-developed agricultural technology prototype for the Smart India Hackathon (SIH),
-            exploring how digital tools can make useful information and decision support more
-            accessible to farmers.
+            A gamified farming prototype for Smart India Hackathon 2025 (SIH25075): grow plants and vegetables level by level, earn points for achievements, and make sustainable farming simple and fun.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -76,7 +74,7 @@ export const FarmHero = () => {
                 <Award className="w-6 h-6 text-accent-foreground group-hover:animate-wiggle" />
               </div>
               <h3 className="text-xl font-semibold text-primary-foreground mb-2">Gamified Missions</h3>
-              <p className="text-primary-foreground/80">Daily, weekly and seasonal missions that reward sustainable practices (sample missions for now).</p>
+              <p className="text-primary-foreground/80">Level up and earn points for sustainable practices through missions (sample missions for now).</p>
             </div>
             
             <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/20 hover:bg-card/20 hover:scale-105 transition-all duration-500 group animate-crop-grow" style={{ animationDelay: '1.5s' }}>

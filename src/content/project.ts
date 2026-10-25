@@ -3,10 +3,13 @@
  * Anything left empty renders as a clearly-marked placeholder.
  */
 export const sihProblemStatement = {
-  id: "", // e.g. "SIHxxxx" — fill in from the official SIH portal
-  title: "", // official problem statement title
-  organisation: "", // sponsoring organisation / ministry, as listed by SIH
-  summary: "", // 2–3 sentences describing the challenge in your own words
+  id: "SIH25075",
+  title: "Gamified Platform to Promote Sustainable Farming Practices",
+  organisation: "Government of Kerala",
+  theme: "Agriculture, FoodTech & Rural Development",
+  category: "Software",
+  summary:
+    "Smart India Hackathon 2025 asks for a software platform that uses game mechanics to encourage sustainable farming practices. Agronova's approach: turn growing plants and vegetables into a level-based journey where achievements earn points, so that farming feels approachable and rewarding, especially for a generation that loves games.",
 };
 
 export type FeatureStatus = "prototype" | "planned";
@@ -25,13 +28,13 @@ export const projectFeatures: ProjectFeature[] = [
     status: "prototype",
   },
   {
-    name: "Farm dashboard",
-    description: "XP, coins, crop progress and sustainability score — currently driven by sample data.",
+    name: "Levels, XP and rewards preview",
+    description: "XP, coins, levels and crop progress on a dashboard, currently driven by sample data.",
     status: "prototype",
   },
   {
     name: "Mission board",
-    description: "Daily, weekly and seasonal sustainable-farming missions — currently sample missions.",
+    description: "Daily, weekly and seasonal sustainable-farming missions, currently sample missions.",
     status: "prototype",
   },
   {
@@ -41,7 +44,13 @@ export const projectFeatures: ProjectFeature[] = [
   },
   {
     name: "Real accounts and saved progress",
-    description: "Connect a backend so profiles, missions and rewards persist.",
+    description: "Connect a backend so profiles, levels, missions and points persist.",
+    status: "planned",
+  },
+  {
+    name: "Government-connected marketplace",
+    description:
+      "Idea: buy seeds and other farming supplies from the same place, linked to government schemes. This is a concept only; no government integration exists.",
     status: "planned",
   },
   {

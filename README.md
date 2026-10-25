@@ -1,6 +1,10 @@
 # Agronova
 
-**Smarter Agriculture, Better Decisions** — a student-developed agricultural technology prototype for the Smart India Hackathon (SIH).
+**Smarter Agriculture, Better Decisions** — an agricultural technology prototype I developed for Smart India Hackathon 2025.
+
+**Problem statement:** SIH25075 — *Gamified Platform to Promote Sustainable Farming Practices* (Government of Kerala · Software · Agriculture, FoodTech & Rural Development).
+
+**Idea:** growing plants and vegetables becomes a level-based game where achievements earn points. Planned: buying seeds and supplies in the same place through a government-connected marketplace. Aimed especially at Gen Z, who enjoy games and achievements.
 
 > **Status: work in progress.** Agronova is an evolving prototype. Several features use sample data or are awaiting backend integration (see [Current state](#current-state)).
 
@@ -58,6 +62,6 @@ Routes: `/` (home), `/login`, `/register`, `/soil-setup`, and a 404 fallback.
 
 `src/services/auth.ts` is the single place to implement real login and registration. It stays in demo mode while `VITE_API_BASE_URL` is empty. Hash passwords on the server, never log or persist passwords or Aadhar numbers in the browser, and reconsider whether the prototype should collect Aadhar numbers at all.
 
-### Filling in the SIH details
+### Project details
 
-Edit `src/content/project.ts` to add the official problem statement (ID, title, organisation, summary) and to keep the "implemented vs planned" list accurate.
+The SIH problem statement and feature status shown on the homepage live in `src/content/project.ts`. Keep the "implemented vs planned" list accurate.

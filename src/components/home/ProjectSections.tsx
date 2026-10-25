@@ -44,7 +44,7 @@ export const StatusNotice = () => (
 );
 
 export const ProblemSection = () => {
-  const { id, title, organisation, summary } = sihProblemStatement;
+  const { id, title, organisation, theme, summary } = sihProblemStatement;
   const hasDetails = Boolean(title || summary);
   return (
     <Section
@@ -58,7 +58,7 @@ export const ProblemSection = () => {
             <>
               {(id || organisation) && (
                 <p className="text-sm text-muted-foreground">
-                  {[id, organisation].filter(Boolean).join(" · ")}
+                  {["Smart India Hackathon 2025", id, organisation, theme].filter(Boolean).join(" · ")}
                 </p>
               )}
               {title && <h3 className="text-xl font-semibold text-foreground">{title}</h3>}
@@ -82,13 +82,13 @@ export const SolutionSection = () => (
     id="solution"
     tone="muted"
     title="Our Proposed Solution"
-    intro="Agronova explores how digital tools can make guidance and decision support more accessible to farmers, and how game-style missions can encourage sustainable practices."
+    intro="Agronova turns growing plants and vegetables into a game: you level up, complete missions and earn points for achievements that reward sustainable practices."
   >
     <div className="grid md:grid-cols-3 gap-6">
       {[
-        ["Know your farm", "Farmers describe their soil, farm size and preferred crops once."],
-        ["Take small actions", "Missions break sustainable practices into trackable steps with rewards."],
-        ["See progress", "A dashboard summarises crops, tasks and a sustainability score."],
+        ["Grow level by level", "Progress through levels as you set up your farm and look after your crops."],
+        ["Earn points for achievements", "Missions and milestones reward sustainable practices with XP and coins."],
+        ["Everything in one place (planned)", "Our idea: buy seeds and supplies from the same app, linked to government schemes."],
       ].map(([heading, text]) => (
         <Card key={heading}>
           <CardHeader>
@@ -163,9 +163,9 @@ export const DevelopmentStatus = () => (
 export const AboutProject = () => (
   <Section id="about" title="About the Project">
     <p className="max-w-3xl mx-auto text-center text-lg text-foreground/90 leading-relaxed">
-      Agronova is a student-developed project created in the context of the Smart India Hackathon
-      (SIH). We are refining the platform, validating its features and improving how useful it is
-      to farmers and other agricultural stakeholders.
+      Agronova was built by a student for Smart India Hackathon 2025, problem statement SIH25075.
+      It is designed especially to appeal to Gen Z, who enjoy games and chasing achievements, and
+      aims to make farming easier and more interesting. It is a prototype, not a production service.
     </p>
     <div className="flex justify-center mt-4">
       <Badge variant="outline" className="gap-1">
